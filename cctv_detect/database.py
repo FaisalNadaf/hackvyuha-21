@@ -13,7 +13,7 @@ def generate_unique_person_id():
         if not collection.find_one({"person_id": new_id}):
             return new_id
 
-def store_productivity_data(person_id, zone_times, movement_times):
+def store_productivity_data(person_id,person_name, zone_times, movement_times):
     # Check if person_id already exists
     if collection.find_one({"person_id": person_id}):
         print(f"person_id '{person_id}' already exists. Generating a new one.")
@@ -21,6 +21,7 @@ def store_productivity_data(person_id, zone_times, movement_times):
     
     record = {
         "person_id": person_id,
+        "person_name":person_name,
         "zone_times": zone_times,
         "movement_times": movement_times,
         "timestamp": datetime.now()

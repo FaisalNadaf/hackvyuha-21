@@ -8,6 +8,7 @@ import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Person from "./Pages/Person";
 import Sidebar from "./Pages/Sidebar";
+import AllPersons from "./Pages/AllPersons";
 
 function PrivateRoute({ children }) {
 	const { isAuthenticated } = useAuth();
@@ -37,7 +38,7 @@ function AppRoutes() {
 				path="/"
 				element={
 					<PrivateRoute>
-						<Home />
+						<AllPersons />
 					</PrivateRoute>
 				}
 			/>

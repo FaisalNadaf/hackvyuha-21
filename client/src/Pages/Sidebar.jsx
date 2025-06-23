@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { LogOut, Menu, LayoutDashboard, Monitor } from "lucide-react";
 import { useAuth } from "../Context/AuthContext";
 import { Close } from "@mui/icons-material";
+import { Button } from "@/components/ui/button";
+
 
 const Sidebar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +23,6 @@ const Sidebar = () => {
 	const styles = {
 		sidebar: {
 			position: "fixed",
-
 			top: 0,
 			left: isOpen ? 0 : "-220px",
 			width: "180px",
@@ -94,18 +95,21 @@ const Sidebar = () => {
 						style={styles.navItem}>
 						<LayoutDashboard size={18} /> Dashboard
 					</Link>
-					<Link
-						to="#"
-						onClick={() => {}}
+					{/* <div
+						onClick={() => {
+							alert("Running terminal commands is not supported from the browser.");
+						}}
 						style={styles.navItem}>
 						<Monitor size={18} /> Monitoring
-					</Link>
+					</div> */}
 				</div>
-				<div
-					onClick={handleLogout}
-					style={styles.navItem}>
-					<LogOut size={18} /> Logout
-				</div>
+				<button
+									className=" border-2 my-6  mx-2 rounded-lg border-gray-600 shadow-lg  flex items-center justify-center	p-2  bg-[#ff0000bb] hover:bg-[#ff000077]"
+									onClick={handleLogout}
+									variant="outline">
+										<LogOut size={18} className="mr-2" /> Logout
+								</button>
+
 			</div>
 		</>
 	);
